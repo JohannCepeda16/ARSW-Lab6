@@ -37,7 +37,7 @@ Si queremos ejecutar las pruebas de nuestro proyecto debemos ubicarnos en la rai
 ```
 mvn test
 ```
-
+![Tablero](https://github.com/JohannCepeda16/ARSW-Lab6/blob/main/resources/Tablero.PNG)
 
 ## Programa hecho con
 
