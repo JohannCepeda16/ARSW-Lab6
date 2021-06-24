@@ -21,6 +21,10 @@ public class BoardController {
     @Autowired
     BoardServices boardServices;
     
+    /**
+     * Devuelve todos los puntos
+     * @return
+     */
     @GetMapping("fetchAll")
     public ArrayList<Point> fetchAllPoints(){
         try {
@@ -31,6 +35,10 @@ public class BoardController {
         }
     }
 
+    /**
+     * Agrega un punto adicional a la lista
+     * @param point
+     */
     @PostMapping("addPoint")
     public void addPoint(@RequestBody Point point){
         try {

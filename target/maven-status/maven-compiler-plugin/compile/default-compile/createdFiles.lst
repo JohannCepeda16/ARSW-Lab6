@@ -1,1 +1,6 @@
+edu\escuelaing\arsw\model\Point.class
+edu\escuelaing\arsw\services\impl\BoardServicesImpl.class
+edu\escuelaing\arsw\helper\Storage.class
 edu\escuelaing\arsw\InteractiveBoard.class
+edu\escuelaing\arsw\services\BoardServices.class
+edu\escuelaing\arsw\controllers\BoardController.class

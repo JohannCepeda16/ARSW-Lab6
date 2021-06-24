@@ -40,6 +40,10 @@ public class Storage {
         points.add(newPoint);
     }
 
+    /**
+     * Devuelve los puntos
+     * @return
+     */
     public ArrayList<Point> getPoints() {
         return this.points;
     }
