@@ -1,8 +1,8 @@
+let points = []
+
 let timerID = setInterval(() => {
     fetchallPoints();
 }, 5000);
-
-let users = []
 
 function fetchallPoints(){
     fetch("/api/fetchAll", {
@@ -13,19 +13,22 @@ function fetchallPoints(){
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data);
+        if(data){
+            points = data;
+        }
+
     }).catch(error => console.log(error));
 }
 
-function addPoint(ip, point){
-    fetch("/api/addPoint?ip=" + JSON.stringify(ip), {
+function addPoint(point){
+    fetch("/api/addPoint", {
         method:"POST",
         headers:{
             "Content-Type":"application/json"
         },
         body:JSON.stringify(point)
     }).then(res => {
-        users.push({ip: ip, point: point});
+        //users.push({ip: ip, point: point});
     }).catch(error => console.log(error));
 }
 
@@ -35,10 +38,15 @@ function setup() {
 
 // Esta función se ejecuta repetidas veces indefinidamente.
 function draw() {
+    points.map((point) => {
+        let color = point.color.split(",");
+        fill(color[0], color[1], color[2]);
+        ellipse(point.x, point.y, 20, 20);
+    })
     if (mouseIsPressed === true) {
-        fill(0, 0, 0);
+        fill(0,0,0);
         ellipse(mouseX, mouseY, 20, 20);
-        addPoint("localhost2", {x: mouseX, y: mouseY});
+        addPoint({x: mouseX, y: mouseY, color:"0,0,0"});
     }
     if (mouseIsPressed === false) {
         fill(255, 255, 255);

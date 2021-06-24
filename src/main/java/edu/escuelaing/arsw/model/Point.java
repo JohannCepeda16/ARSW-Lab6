@@ -1,19 +1,21 @@
 package edu.escuelaing.arsw.model;
 
-public class Point {
+import java.io.Serializable;
+
+public class Point implements Serializable{
     
     private float x;
     private float y;
+    private String color;
 
-    public Point(){
-
+    public Point() {
     }
 
-    public Point(float x, float y) {
+    public Point(float x, float y, String color) {
         this.x = x;
         this.y = y;
+        this.color = color;
     }
-    
 
     public float getX() {
         return this.x;
@@ -31,11 +33,21 @@ public class Point {
         this.y = y;
     }
 
+    public String getColor() {
+        return this.color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     @Override
     public String toString() {
         return "{" +
             " x='" + getX() + "'" +
             ", y='" + getY() + "'" +
+            ", color='" + getColor() + "'" +
             "}";
     }
+
 }

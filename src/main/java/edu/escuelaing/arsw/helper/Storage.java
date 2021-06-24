@@ -1,14 +1,13 @@
 package edu.escuelaing.arsw.helper;
 
 import java.util.ArrayList;
-import java.util.concurrent.ConcurrentHashMap;
 
 import edu.escuelaing.arsw.model.Point;
 
 public class Storage {
 
     private static final Storage instance = new Storage();
-    private ConcurrentHashMap<String, ArrayList<Point>> points = new ConcurrentHashMap<>();
+    private ArrayList<Point> points = new ArrayList<>();
 
     private Storage() {
     }
@@ -27,7 +26,7 @@ public class Storage {
      * 
      * @param points
      */
-    public Storage(ConcurrentHashMap<String, ArrayList<Point>> points) {
+    public Storage(ArrayList<Point> points) {
         this.points = points;
     }
 
@@ -36,27 +35,20 @@ public class Storage {
      * 
      * @param newPoint
      */
-    public void addPoint(String ip, Point newPoint) {
-        ArrayList<Point> oldPoints = null;
-        if (points.containsKey(ip)) {
-            oldPoints = points.get(ip);
-        } else {
-            oldPoints = new ArrayList<Point>();
-        }
-        //Agregar el nuevo punto
-        oldPoints.add(newPoint);
-        points.put(ip, oldPoints);
+    public void addPoint(Point newPoint) {
+        //System.out.println(newPoint);
+        points.add(newPoint);
     }
 
-    public ConcurrentHashMap<String, ArrayList<Point>> getPoints() {
+    public ArrayList<Point> getPoints() {
         return this.points;
     }
 
-    public void setPoints(ConcurrentHashMap<String, ArrayList<Point>> points) {
+    public void setPoints(ArrayList<Point> points) {
         this.points = points;
     }
 
-    public Storage points(ConcurrentHashMap<String, ArrayList<Point>> points) {
+    public Storage points(ArrayList<Point> points) {
         setPoints(points);
         return this;
     }
